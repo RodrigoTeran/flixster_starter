@@ -1,5 +1,6 @@
 const API_KEY = "fd028a832271b53ac3f7327b3be0fde8";
-const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
+let currentPage = 1;
+let isRehydrating = false;
 
 const hamburgerEl = document.querySelector(".hamburger");
 const asideEl = document.querySelector(".aside");
@@ -8,25 +9,27 @@ const containerEl = document.querySelector(".container");
 const titleEl = document.querySelector(".title");
 const searchEl = document.querySelector(".search");
 
-function fetcher() {
-    fetch(url)
+function fetcher(withHydration = false) {
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${currentPage}`)
     .then(res => res.json())
     .then(data => {
-        // Delete skeleton
-        containerEl.innerHTML = ``;
+        if (!withHydration) {
+            // Delete skeleton
+            containerEl.innerHTML = ``;
 
-        // Edit title
-        titleEl.innerHTML = `Popular movies`;
-        titleEl.classList.add("text");
+            // Edit title
+            titleEl.innerHTML = `Popular movies`;
+            titleEl.classList.add("text");
 
-        // Updates search bar
-        searchEl.innerHTML = `
-            <svg viewBox="0 0 43 43" xmlns="http://www.w3.org/2000/svg">
-                <path d="M42.4121 37.1799L34.0389 28.8066C33.6609 28.4287 33.1486 28.2188 32.6111 28.2188H31.2422C33.5602 25.2541 34.9375 21.5252 34.9375 17.4688C34.9375 7.81895 27.1186 0 17.4688 0C7.81895 0 0 7.81895 0 17.4688C0 27.1186 7.81895 34.9375 17.4688 34.9375C21.5252 34.9375 25.2541 33.5602 28.2188 31.2422V32.6111C28.2188 33.1486 28.4287 33.6609 28.8066 34.0389L37.1799 42.4121C37.9693 43.2016 39.2459 43.2016 40.027 42.4121L42.4037 40.0354C43.1932 39.2459 43.1932 37.9693 42.4121 37.1799ZM17.4688 28.2188C11.5311 28.2188 6.71875 23.4148 6.71875 17.4688C6.71875 11.5311 11.5227 6.71875 17.4688 6.71875C23.4064 6.71875 28.2188 11.5227 28.2188 17.4688C28.2188 23.4064 23.4148 28.2188 17.4688 28.2188Z"/>
-            </svg>
-            <input type="text" id="search" placeholder="Search">
-        `
-        searchEl.classList.add("open")
+            // Updates search bar
+            searchEl.innerHTML = `
+                <svg viewBox="0 0 43 43" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M42.4121 37.1799L34.0389 28.8066C33.6609 28.4287 33.1486 28.2188 32.6111 28.2188H31.2422C33.5602 25.2541 34.9375 21.5252 34.9375 17.4688C34.9375 7.81895 27.1186 0 17.4688 0C7.81895 0 0 7.81895 0 17.4688C0 27.1186 7.81895 34.9375 17.4688 34.9375C21.5252 34.9375 25.2541 33.5602 28.2188 31.2422V32.6111C28.2188 33.1486 28.4287 33.6609 28.8066 34.0389L37.1799 42.4121C37.9693 43.2016 39.2459 43.2016 40.027 42.4121L42.4037 40.0354C43.1932 39.2459 43.1932 37.9693 42.4121 37.1799ZM17.4688 28.2188C11.5311 28.2188 6.71875 23.4148 6.71875 17.4688C6.71875 11.5311 11.5227 6.71875 17.4688 6.71875C23.4064 6.71875 28.2188 11.5227 28.2188 17.4688C28.2188 23.4064 23.4148 28.2188 17.4688 28.2188Z"/>
+                </svg>
+                <input type="text" id="search" placeholder="Search">
+            `
+            searchEl.classList.add("open")
+        }
 
         // Add images to cards
         for (let i = 0; i < data.results.length; i++) {
@@ -54,7 +57,15 @@ function fetcher() {
                 </div>
             ` 
         };
+        checkForHydratingAgain();
     })
+};
+
+function checkForHydratingAgain() {
+    const timeOut = setTimeout(()=>{
+        isRehydrating = false;
+        clearTimeout(timeOut);
+    }, 1000);
 };
 
 function clickAside() {
@@ -69,8 +80,23 @@ function clickAside() {
     }
 };
 
+function addMoreMovies() {
+    isRehydrating = true;
+    currentPage+=1;
+    fetcher(true);
+};
+
+function checkAddMoreMovies(e) {
+    if (e.target.scrollHeight - 1000 < e.target.scrollTop) {
+        if (!isRehydrating) {
+            addMoreMovies();
+        }
+    }
+};
+
 function addEventListeners() {
     hamburgerEl.addEventListener("click", clickAside);
+    sectionEl.addEventListener("scroll", checkAddMoreMovies);
 };
 
 
