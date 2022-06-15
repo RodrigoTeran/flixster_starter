@@ -11,7 +11,23 @@ nav {
     justify-content: space-between;
     z-index: 10;
 }
-
+.hamburger {
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    right: 50px;
+    top: calc(50% / 15px);
+    border-radius: 0;
+    width: 35px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: visibility ease-out 300ms, opacity ease-out 300ms;
+    background-color: transparent;
+}
 nav h1 {
     margin: 0;
     font-weight: normal;
@@ -21,7 +37,6 @@ nav h1 span {
     color: var(--aqua-100);
     font-weight: bold;
 }
-
 nav div {
     width: 247px;
     height: 37px;
@@ -29,10 +44,20 @@ nav div {
     border-radius: 30px;
     transition: visibility ease-out 300ms, opacity ease-out 300ms;
 }
+.hamburger div {
+    border-radius: 4px;
+    background-color: var(--white);
+    height: 3px;
+    width: 100%;
+    transition: transform ease-out 300ms;
+}
 main {
     margin: 0;
     width: 100vw;
-    display: flex;
+    display: block;
+    overflow: hidden;
+    height: 100vh; /* minus height nav */
+    position: relative;
 }
 main aside {
     width: 219px;
@@ -61,10 +86,12 @@ main aside span {
 main section {
     padding: 45px;
     position: absolute;
+    height: calc(100vh - 65px); /* minus height nav */
     top: 65px; /* height nav */
     left: 219px;  /* width aside */
     width: calc(100% - 219px); /* minus width aside */
     transition: left ease-out 300ms;
+    overflow-y: auto;
 }
 main section h2 {
     width: 154px;
@@ -87,7 +114,7 @@ main section h2 {
     background-color: var(--dark-200);
     border-radius: 5px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 500px) {
     main aside {
         left: -219px;  /* width aside */
     }
@@ -105,5 +132,32 @@ main section h2 {
     nav div {
         visibility: hidden;
         opacity: 0;
+    }
+    .hamburger {
+        visibility: visible;
+        opacity: 1;
+    }
+    .hamburger div {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* open */
+    .hamburger.open div:nth-child(1) {
+        transform: translateY(11px) rotateZ(45deg); /* half height hamburger minus half me */
+    }
+    .hamburger.open div:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.open div:nth-child(3) {
+        transform: translateY(-11px) rotateZ(-45deg); /* half height hamburger minus half me */
+    }
+    .aside.open {
+        left: 0;
+        position: fixed;
+        top: 65px; /* height nav */
+    }
+    .section.open {
+        left: 219px;  /* width aside */
     }
 }
