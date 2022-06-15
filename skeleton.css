@@ -1,0 +1,109 @@
+nav {
+    height: 65px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: var(--dark-100);
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+nav h1 {
+    margin: 0;
+    font-weight: normal;
+}
+
+nav h1 span {
+    color: var(--aqua-100);
+    font-weight: bold;
+}
+
+nav div {
+    width: 247px;
+    height: 37px;
+    background-color: var(--dark-200);
+    border-radius: 30px;
+    transition: visibility ease-out 300ms, opacity ease-out 300ms;
+}
+main {
+    margin: 0;
+    width: 100vw;
+    display: flex;
+}
+main aside {
+    width: 219px;
+    height: calc(100vh - 65px); /* minus height nav */
+    position: fixed;
+    top: 65px; /* height nav */
+    background-color: var(--dark-200);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    left: 0;
+    transition: left ease-out 300ms;
+}
+main aside h2, main aside span {
+    width: 100%;
+    background-color: var(--dark-100);
+    border-radius: 5px;
+}
+main aside h2 {
+    height: 30px;
+}
+main aside span {
+    height: 18px;
+}
+main section {
+    padding: 45px;
+    position: absolute;
+    top: 65px; /* height nav */
+    left: 219px;  /* width aside */
+    width: calc(100% - 219px); /* minus width aside */
+    transition: left ease-out 300ms;
+}
+main section h2 {
+    width: 154px;
+    height: 29px;
+    background-color: var(--dark-200);
+    border-radius: 5px;
+    margin: 0;
+}
+.container {
+    display: grid;
+    width: 100%;
+    margin-top: 49px;
+    grid-template-columns: repeat(auto-fill, 190px);
+    justify-content: space-between;
+    gap: 30px;
+}
+.container-card {
+    width: 188px;
+    height: 265px;
+    background-color: var(--dark-200);
+    border-radius: 5px;
+}
+@media screen and (max-width: 750px) {
+    main aside {
+        left: -219px;  /* width aside */
+    }
+    main section {
+        left: 0;
+        align-items: center;
+        width: 100vw;
+    }
+    .container {
+        justify-content: center;
+    }
+    main section h2 {
+        margin: 0 auto;
+    }
+    nav div {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
