@@ -197,7 +197,7 @@ function addPopUp(movie_id) {
 
             for (let i = 0; i < data.genres.length; i++) {
                 if (i < data.genres.length - 1) {
-                    categories += data.genres[i].name + `,`
+                    categories += data.genres[i].name + ` - `
                 } else {
                     categories += data.genres[i].name
                 }

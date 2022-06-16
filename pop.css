@@ -76,6 +76,12 @@
         width: 100%;
     }
 }
+@media screen and (max-width: 340px) {
+    .embeded, .embeded iframe {
+        width: 100%;
+        height: 100px;
+    }
+}
 
 .pop-card-info {
     margin-top: 40px;
@@ -96,4 +102,25 @@
     fill: var(--gray-500);
     width: 20px;
     height: 20px;
+}
+.pop-card-info div:nth-child(1) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding-left: 12.5px;
+    flex-wrap: wrap;
+}
+.pop-card-info span {
+    position: relative;
+}
+.pop-card-info span::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 2.5px);
+    left: -12.5px;
+    width: 5px;
+    height: 5px;
+    background-color: var(--aqua-100);
+    border-radius: 50%;
 }
