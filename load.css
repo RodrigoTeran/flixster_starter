@@ -25,5 +25,33 @@
     fill: var(--dark-100);
 }
 .btn-load-more:hover {
-    transform: scale(.95);
+    transform: scale(.85);
+}
+.loading {
+    background-color: transparent;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    border: 5px solid var(--dark-200);
+    border-bottom: 5px solid transparent;
+    animation: anima_loading 1.5s infinite linear;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility ease-out 300ms, opacity ease-out 300ms;
+    position: absolute;
+}
+.loading.open {
+    visibility: visible;
+    opacity: 1;
+}
+.btn-load-more.loader svg {
+    fill: transparent;
+}
+@keyframes anima_loading {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
 }

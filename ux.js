@@ -1,3 +1,5 @@
+let canManualLoadMore = true;
+
 function enableDarkMode() {
     const btnUX = document.querySelector(`#dark-mode`);
     const r = document.querySelector(":root");
@@ -30,6 +32,21 @@ function editStyleBtn(id) {
         btn.innerHTML = "Off";
     }
 };
+
+function triggerLoading() {
+    if (canManualLoadMore) {
+        addMoreMovies();
+        document.querySelector(`.loading`).classList.add(`open`);
+        document.querySelector(`.btn-load-more`).classList.add(`loader`);
+        canManualLoadMore = false;
+        const timeOut = setTimeout(()=> {
+            document.querySelector(`.loading`).classList.remove(`open`);
+            document.querySelector(`.btn-load-more`).classList.remove(`loader`);
+            clearTimeout(timeOut);
+            canManualLoadMore = true;
+        }, 1000);
+    }
+}
 
 function enableAutoLoad() {
     editStyleBtn(`auto-load`);
