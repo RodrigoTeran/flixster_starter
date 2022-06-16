@@ -261,7 +261,8 @@ function updateStateSearch(e) {
     spanSvg.innerHTML = xBtn;
 
     spanSvg.addEventListener("click", () => {
-        deleteSearch(spanSvg);
+        // Check if is in search mode
+        if (isInSearchMode) deleteSearch(spanSvg);
     });
 
     // Load data
