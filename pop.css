@@ -1,0 +1,99 @@
+.pop-up {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: var(--black-a-50);
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    transition: visibility ease-out 300ms, opacity ease-out 300ms;
+}
+.pop-up.open {
+    visibility: visible;
+    opacity: 1;
+}
+.pop-card {
+    position: relative;
+    width: 90vw;
+    max-width: 600px;
+    background-color: var(--dark-200);
+    padding: 35px 50px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+.pop-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 3px, 0 3px);
+    background-color: var(--aqua-100);
+    border-radius: 5px;
+}
+.pop-card h5 {
+    margin: 0;
+    font-size: 28px;
+    color: var(--gray-400);
+    width: calc(100% - 340px);
+}
+.embeded {
+    width: 310px;
+    height: 130px;
+    background-color: var(--dark-100);
+    display: flex;
+    justify-content: center;
+}
+.embeded iframe {
+    width: 310px;
+    height: 130px;
+}
+.pop-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+@media screen and (max-width: 650px) {
+    .pop-card-top {
+        flex-direction: column;
+        align-items: center;
+    }
+    .pop-card h5 {
+        text-align: center;
+        width: 100%;
+    }
+    .pop-card {
+        padding: 35px 10px;
+    }
+    .embeded {
+        width: 100%;
+    }
+}
+
+.pop-card-info {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.pop-card button {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    z-index: 1;
+    cursor: pointer;
+}
+.pop-card button svg {
+    fill: var(--gray-500);
+    width: 20px;
+    height: 20px;
+}
