@@ -25,6 +25,7 @@
     padding: 35px 50px;
     overflow-y: auto;
     max-height: 90vh;
+    border-radius: 5px;
 }
 .pop-card::before {
     content: "";

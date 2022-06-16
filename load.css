@@ -1,0 +1,29 @@
+.btn-load-more {
+    position: fixed;
+    z-index: 49;
+    right: 20px;
+    bottom: 20px;
+    background-color: var(--aqua-100);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: visibility ease-out 300ms, opacity ease-out 300ms, transform ease-out 150ms;
+}
+.btn-load-more.open {
+    visibility: visible;
+    opacity: 1;
+}
+.btn-load-more svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--dark-100);
+}
+.btn-load-more:hover {
+    transform: scale(.95);
+}

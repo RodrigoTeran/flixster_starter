@@ -5,6 +5,8 @@ let isInSearchMode = false;
 let firstLoad = false;
 let selectedCategorie = "Now Playing";
 let movieCardEl;
+let isAutoLoadOn = true;
+
 const categories = {
     "Now Playing": "now_playing",
     "Top rated": "top_rated",
@@ -43,10 +45,4 @@ function addEventListeners() {
         clearTimeout(timeOut);
     }, 1000);
 
-};
-
-window.onload = function () {
-    // Fetch the data
-    addEventListeners();
-    fetcher();
 };

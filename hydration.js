@@ -14,7 +14,7 @@ function addMoreMovies() {
 };
 
 function checkAddMoreMovies(e) {
-    if (e.target.scrollHeight - 1000 < e.target.scrollTop) {
+    if (e.target.scrollHeight - 1000 < e.target.scrollTop && isAutoLoadOn) {
         if (!isRehydrating) {
             addMoreMovies();
         }

@@ -4,11 +4,13 @@ function clickAside() {
         asideEl.classList.add("open");
         sectionEl.classList.add("open");
         searchEl.classList.add("responsiveOpen");
+        document.querySelector(`.btn-load-more`).classList.remove(`open`);
     } else {
         hamburgerEl.classList.remove("open");
         asideEl.classList.remove("open");
         sectionEl.classList.remove("open");
         searchEl.classList.remove("responsiveOpen");
+        document.querySelector(`.btn-load-more`).classList.add(`open`);
     }
 };
 
