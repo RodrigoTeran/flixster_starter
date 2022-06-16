@@ -3,10 +3,12 @@ function clickAside() {
         hamburgerEl.classList.add("open");
         asideEl.classList.add("open");
         sectionEl.classList.add("open");
+        searchEl.classList.add("responsiveOpen");
     } else {
         hamburgerEl.classList.remove("open");
         asideEl.classList.remove("open");
         sectionEl.classList.remove("open");
+        searchEl.classList.remove("responsiveOpen");
     }
 };
 

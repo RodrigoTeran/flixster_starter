@@ -90,3 +90,16 @@
     display: flex;
     gap: 10px;
 }
+@media screen and (max-width:500px){
+        .search {
+            position: fixed;
+            left: -219px;
+            z-index: 99;
+            top: 90px;
+            width: 200px;
+            transition: left ease-out 300ms;
+        }
+        .search.responsiveOpen {
+            left: 8.5px;
+        }
+}
