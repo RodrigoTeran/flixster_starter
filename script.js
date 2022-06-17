@@ -26,7 +26,7 @@ let categoriesEl;
 
 function addEventListeners() {
     hamburgerEl.addEventListener("click", ()=> {
-        clickAside(true);
+        interactWithCategories(true);
     });
     sectionEl.addEventListener("scroll", checkAddMoreMovies);
     popUp.addEventListener("click", checkIfNeedToClosePopUp);
@@ -43,7 +43,7 @@ function addEventListeners() {
             categoriesEl[i].addEventListener("click", function (e) {
                 // Just to check the value
                 selectedCategorie = categoriesEl[i].innerHTML.replace(/(\r\n|\n|\r)/gm, "").trim();
-                clickAside();
+                interactWithCategories();
                 fetcher();
             });
         }

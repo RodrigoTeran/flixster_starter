@@ -2,7 +2,7 @@
 
 Submitted by: **Rodrigo Teran Hernandez**
 
-Estimated time spent: **3** hours spent in total
+Estimated time spent: **5** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site](https://flixster-starter.vercel.app/)
 
@@ -40,9 +40,8 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixster-start
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+<img src="walk.gif" alt="Walkthrough" width="300px">
 
-`ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
