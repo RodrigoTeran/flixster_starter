@@ -1,5 +1,5 @@
 function clickAside(isHamClicked) {
-    document.querySelector(`.load-more-movies-btn`).classList.add(`open`);
+    if(!isAutoLoadOn) document.querySelector(`.load-more-movies-btn`).classList.add(`open`);
     if (!hamburgerEl.classList.contains("open")) { // Only need to check for one
         hamburgerEl.classList.add("open");
         asideEl.classList.add("open");

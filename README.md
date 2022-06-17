@@ -1,6 +1,6 @@
 ## Week 1 Assignment: Flixster
 
-Submitted by: **Rodrigo teran Hernandez**
+Submitted by: **Rodrigo Teran Hernandez**
 
 Estimated time spent: **3** hours spent in total
 
