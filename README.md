@@ -40,7 +40,11 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixster-start
 
 ### Walkthrough Video
 
-<img src="walk.gif" alt="Walkthrough" width="300px">
+<iframe 
+  src="walk.gif" frameborder="0" 
+  webkitallowfullscreen mozallowfullscreen allowfullscreen 
+  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+</iframe>
 
 
 ### Reflection
