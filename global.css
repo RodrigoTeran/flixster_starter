@@ -9,6 +9,7 @@
     --dark-300: #181D23;
 
     --white: #FFF;
+    --black: #000;
     
     --aqua-100: #50F5EB;
 
@@ -62,7 +63,7 @@ a {
         width: 0.7em;
     }
     ::-webkit-scrollbar-thumb {
-        background-color: var(--dark-200);
+        background-color: var(--gray-300);
         border-radius: 500px;
     }
     ::-webkit-scrollbar-track-piece {

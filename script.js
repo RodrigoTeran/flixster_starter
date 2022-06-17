@@ -16,15 +16,20 @@ const categories = {
 const hamburgerEl = document.querySelector(".hamburger");
 const asideEl = document.querySelector(".aside");
 const sectionEl = document.querySelector(".section");
-const containerEl = document.querySelector(".container");
+const containerEl = document.querySelector("#movies-grid");
 const titleEl = document.querySelector(".title");
 const searchEl = document.querySelector(".search");
+const popUp = document.querySelector(".pop-up");
+
 let inputSearch;
 let categoriesEl;
 
 function addEventListeners() {
-    hamburgerEl.addEventListener("click", clickAside);
+    hamburgerEl.addEventListener("click", ()=> {
+        clickAside(true);
+    });
     sectionEl.addEventListener("scroll", checkAddMoreMovies);
+    popUp.addEventListener("click", checkIfNeedToClosePopUp);
 
     const timeOut = setTimeout(()=>{
         inputSearch = document.querySelector("#search-input");

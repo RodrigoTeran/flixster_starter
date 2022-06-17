@@ -23,8 +23,6 @@ function getEmbeded(movie_id) {
 }
 
 function addPopUp(movie_id) {
-    const popUp = document.querySelector(".pop-up");
-
     fetch(
         `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`
     )
@@ -46,7 +44,7 @@ function addPopUp(movie_id) {
 
             const htmlEl = `
                 <div class="pop-card">
-                    <button onclick="deletePopUp();">
+                    <button title="Close" onclick="deletePopUp();">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
                             <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/>
                         </svg>
@@ -85,8 +83,12 @@ function addPopUp(movie_id) {
         });
 }
 
+function checkIfNeedToClosePopUp(e) {
+    if(e.target !== e.currentTarget) return;
+    deletePopUp();
+}
+
 function deletePopUp() {
-    const popUp = document.querySelector(".pop-up");
     popUp.classList.remove("open");
     popUp.innerHTML = ``;
 };

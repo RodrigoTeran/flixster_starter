@@ -9,14 +9,18 @@ function enableDarkMode() {
        r.style.setProperty("--dark-200", "#1D262D");
        r.style.setProperty("--dark-300", "#181D23");
        r.style.setProperty("--white", "#fff");
+       r.style.setProperty("--black", "#000");
        r.style.setProperty("--aqua-100", "#50F5EB");
+       r.style.setProperty("--gray-600", "#e2e8f0");
     } else {
         // Light
         r.style.setProperty("--dark-100", "#e7eaee");
         r.style.setProperty("--dark-200", "#f8fafc");
         r.style.setProperty("--dark-300", "#fff");
         r.style.setProperty("--white", "#000");
+        r.style.setProperty("--black", "#fff");
         r.style.setProperty("--aqua-100", "#9287f1");
+        r.style.setProperty("--gray-600", "#4c5566");
     }
     editStyleBtn(`dark-mode`);
 };
@@ -37,11 +41,11 @@ function triggerLoading() {
     if (canManualLoadMore) {
         addMoreMovies();
         document.querySelector(`.loading`).classList.add(`open`);
-        document.querySelector(`.btn-load-more`).classList.add(`loader`);
+        document.querySelector(`.load-more-movies-btn`).classList.add(`loader`);
         canManualLoadMore = false;
         const timeOut = setTimeout(()=> {
             document.querySelector(`.loading`).classList.remove(`open`);
-            document.querySelector(`.btn-load-more`).classList.remove(`loader`);
+            document.querySelector(`.load-more-movies-btn`).classList.remove(`loader`);
             clearTimeout(timeOut);
             canManualLoadMore = true;
         }, 1000);
@@ -54,7 +58,8 @@ function enableAutoLoad() {
 };
 
 function addManualLoad() {
-    document.querySelector(`.btn-load-more`).classList.add(`open`);
+    console.log("xd")
+    document.querySelector(`.load-more-movies-btn`).classList.add(`open`);
 };
 
 function startApp() {

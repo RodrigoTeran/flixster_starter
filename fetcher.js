@@ -43,7 +43,7 @@ function fetcher(withHydration = false,
             `;
 
             containerEl.innerHTML += `
-                <div onclick="addPopUp(${data.results[i].id})" class="container-card movie-card" id="${data.results[i].id}">
+                <div onclick="addPopUp(${data.results[i].id})" class="movie-card" id="${data.results[i].id}">
                     <div class="black-g-1">
                         <h4 class="movie-title">${data.results[i].title}</h4>
                         <span class="movie-votes">

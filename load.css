@@ -1,4 +1,4 @@
-.btn-load-more {
+.load-more-movies-btn {
     position: fixed;
     z-index: 49;
     right: 20px;
@@ -15,16 +15,16 @@
     cursor: pointer;
     transition: visibility ease-out 300ms, opacity ease-out 300ms, transform ease-out 150ms;
 }
-.btn-load-more.open {
+.load-more-movies-btn.open {
     visibility: visible;
     opacity: 1;
 }
-.btn-load-more svg {
+.load-more-movies-btn svg {
     width: 20px;
     height: 20px;
     fill: var(--dark-100);
 }
-.btn-load-more:hover {
+.load-more-movies-btn:hover {
     transform: scale(.85);
 }
 .loading {
@@ -44,7 +44,7 @@
     visibility: visible;
     opacity: 1;
 }
-.btn-load-more.loader svg {
+.load-more-movies-btn.loader svg {
     fill: transparent;
 }
 @keyframes anima_loading {

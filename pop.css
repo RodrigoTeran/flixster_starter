@@ -100,7 +100,7 @@
     cursor: pointer;
 }
 .pop-card button svg {
-    fill: var(--gray-500);
+    fill: var(--white);
     width: 20px;
     height: 20px;
 }

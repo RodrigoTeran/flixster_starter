@@ -1,16 +1,16 @@
-function clickAside() {
+function clickAside(isHamClicked) {
+    document.querySelector(`.load-more-movies-btn`).classList.add(`open`);
     if (!hamburgerEl.classList.contains("open")) { // Only need to check for one
         hamburgerEl.classList.add("open");
         asideEl.classList.add("open");
         sectionEl.classList.add("open");
         searchEl.classList.add("responsiveOpen");
-        document.querySelector(`.btn-load-more`).classList.remove(`open`);
+        if (isHamClicked) document.querySelector(`.load-more-movies-btn`).classList.remove(`open`);
     } else {
         hamburgerEl.classList.remove("open");
         asideEl.classList.remove("open");
         sectionEl.classList.remove("open");
         searchEl.classList.remove("responsiveOpen");
-        document.querySelector(`.btn-load-more`).classList.add(`open`);
     }
 };
 

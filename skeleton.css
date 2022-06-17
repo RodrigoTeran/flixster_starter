@@ -100,7 +100,7 @@ main section h2 {
     border-radius: 5px;
     margin: 0;
 }
-.container {
+#movies-grid {
     display: grid;
     width: 100%;
     margin-top: 49px;
@@ -108,7 +108,7 @@ main section h2 {
     justify-content: space-between;
     gap: 30px;
 }
-.container-card {
+.movie-card {
     width: 188px;
     height: 265px;
     background-color: var(--dark-200);
@@ -124,7 +124,7 @@ main section h2 {
         align-items: center;
         width: 100vw;
     }
-    .container {
+    #movies-grid {
         justify-content: center;
     }
     main section h2 {
