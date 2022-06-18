@@ -58,7 +58,6 @@ function enableAutoLoad() {
 };
 
 function addManualLoad() {
-    console.log("xd")
     document.querySelector(`.load-more-movies-btn`).classList.add(`open`);
 };
 
